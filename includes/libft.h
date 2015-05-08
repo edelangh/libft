@@ -6,7 +6,7 @@
 /*   By: edelangh <edelangh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:33:53 by edelangh          #+#    #+#             */
-/*   Updated: 2015/04/27 16:43:57 by edelangh         ###   ########.fr       */
+/*   Updated: 2015/05/08 17:42:19 by edelangh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@
 # define C_BLINK "\033[5m"
 # define C_EOC "\033[22;37m"
 # define ECHO(X) ft_echo((void**)&(X), sizeof(X))
+# define MAX_CLIENT_NBR 42
+
+typedef int					t_sock;
+typedef struct protoent		t_protoent;
+typedef struct sockaddr		t_sockaddr;
+typedef struct sockaddr_in	t_sockaddr_in;
+typedef struct sockaddr_in6	t_sockaddr_in6;
 
 typedef struct timespec	t_timespec;
 
@@ -163,4 +170,9 @@ float				ft_rsqrt(float number);
 void				ft_switch_icanon(void);
 int					ft_rm(char *src);
 int					hash(char *s, int max);
+
+t_sock				create_server_ipv4(int ip, char *proto_name);
+t_sock				create_server_ipv6(int ip, char *proto_name);
+t_sock				connect_server_ipv6(char *ip, int port, char *proto_name);
+t_sock				connect_server_ipv4(char *ip, int port, char *proto_name);
 #endif

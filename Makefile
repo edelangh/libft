@@ -131,7 +131,9 @@ SRCS = ft_atoi.c \
 	   hash.c \
 	   ft_stronly.c \
 	   ft_strlower.c \
-	   ft_echo.c
+	   ft_echo.c \
+	   connect_server.c \
+	   create_server.c
 
 HEADER = libft.h
 OBJS = $(addprefix $(OBJDIR),$(subst .c,.o,$(SRCS)))
