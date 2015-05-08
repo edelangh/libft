@@ -6,7 +6,7 @@
 /*   By: edelangh <edelangh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 14:33:53 by edelangh          #+#    #+#             */
-/*   Updated: 2015/05/08 17:42:19 by edelangh         ###   ########.fr       */
+/*   Updated: 2015/05/08 18:14:04 by edelangh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,7 @@ char				*ft_strfnreplace(char *str, char *mtch, char *to, size_t n);
 char				*ft_strrev(char *s);
 size_t				ft_str_alphawash(char *str);
 char				*ft_strlower(char *s);
+char				*ft_stronly(char *s, char *only);
 
 char				**ft_strsplit(const char *s, char c);
 char				**ft_strsplitstr(char *s, char *c);
@@ -148,7 +149,7 @@ int					ft_isprint(int c);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_isnumber(char *str);
-int					ft_stronly(char *str, char *only);
+int					ft_strisonly(char *str, char *only);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstpush(t_list **lst, t_list *nv);

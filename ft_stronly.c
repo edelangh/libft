@@ -6,13 +6,13 @@
 /*   By: edelangh <edelangh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/03/21 14:31:08 by edelangh          #+#    #+#             */
-/*   Updated: 2015/03/21 14:34:04 by edelangh         ###   ########.fr       */
+/*   Updated: 2015/05/08 18:13:32 by edelangh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_stronly(char *str, char *only)
+int		ft_strisonly(char *str, char *only)
 {
 	int	i;
 	int	j;
@@ -29,4 +29,22 @@ int		ft_stronly(char *str, char *only)
 			return (0);
 	}
 	return (1);
+}
+
+char	*ft_stronly(char *s, char *only)
+{
+	int	i;
+
+	i = -1;
+	if (!s || !only)
+		return (NULL);
+	while (s[++i])
+	{
+		if (ft_strchr(only, s[i]))
+		{
+			ft_strcpy(s, s + 1);
+			--i;
+		}
+	}
+	return (s);
 }
