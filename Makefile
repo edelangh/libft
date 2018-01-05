@@ -1,12 +1,14 @@
 # var
 CC = gcc
 NAME = libft.a
+NAME_FTMLX = libftmlx.a
 CFLAGS = -Werror -Wextra -Wall
 OBJDIR = obj/
 HEADERDIR = .
 INCLUDES_DIR = includes
 INCLUDES = $(INCLUDES_DIR)/libft.h $(INCLUDES_DIR)/ft_printf.h \
-		   $(INCLUDES_DIR)/ft_mlx.h $(INCLUDES_DIR)/get_next_line.h
+		   $(INCLUDES_DIR)/get_next_line.h
+INCLUDES_FTMLX = $(INCLUDES_DIR)/ft_mlx.h 
 SRCS = ft_atoi.c \
 	   ft_bzero.c \
 	   ft_isalnum.c \
@@ -113,9 +115,6 @@ SRCS = ft_atoi.c \
 	   ft_action.c \
 	   ft_upper_case.c \
 	   ft_str_alphawash.c \
-	   ft_image.c \
-	   ft_image2.c \
-	   ft_draw_line.c \
 	   ft_ntime.c \
 	   ft_atof.c \
 	   ft_rsqrt.c \
@@ -135,10 +134,19 @@ SRCS = ft_atoi.c \
 	   connect_server.c \
 	   create_server.c
 
+SRCS_FTMLX = ft_image.c \
+	   ft_image2.c \
+	   ft_draw_line.c
+
 HEADER = libft.h
 OBJS = $(addprefix $(OBJDIR),$(subst .c,.o,$(SRCS)))
+OBJS_FTMLX = $(addprefix $(OBJDIR),$(subst .c,.o,$(SRCS_FTMLX)))
 
 all: $(NAME)
+
+$(NAME_FTMLX): $(OBJS_FTMLX) $(INCLUDES_FTMLX)
+	ar r $@ $(OBJS_FTMLX)
+	ranlib $@
 
 $(NAME): $(OBJS) $(INCLUDES)
 	ar r $@ $(OBJS)
