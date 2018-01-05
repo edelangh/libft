@@ -15,14 +15,12 @@
 
 int		ft_echo(void **a, int size)
 {
-	char	*s;
 	int		d;
 	char	c;
 
 	a = *a;
-	c = (char)a;
-	d = (int)a;
-	s = (char*)a;
+	c = (char)(long)a;
+	d = (int)(long)a;
 	if (size == sizeof(char))
 		ft_printf("(%d):(%c)\n", c, c);
 	if (size == sizeof(short) || size == sizeof(int))
