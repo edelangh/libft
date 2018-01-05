@@ -29,6 +29,11 @@
 # define ECHO(X) ft_echo((void**)&(X), sizeof(X))
 # define MAX_CLIENT_NBR 42
 
+# ifdef __unix__
+# define intmax_t long long
+# define uintmax_t unsigned long long
+# endif
+
 typedef int					t_sock;
 typedef struct protoent		t_protoent;
 typedef struct sockaddr		t_sockaddr;

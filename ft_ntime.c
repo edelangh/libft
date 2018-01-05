@@ -12,6 +12,15 @@
 
 #include "libft.h"
 #include <time.h>
+
+#ifdef __unix__
+t_timespec orwl_gettime() {
+    struct timespec start_time;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &start_time);
+    return start_time;
+}
+
+#else
 #include <mach/mach_time.h>
 
 t_timespec		orwl_gettime(void)
@@ -34,6 +43,8 @@ t_timespec		orwl_gettime(void)
 	t.tv_nsec = diff - (t.tv_sec * 1e9);
 	return (t);
 }
+
+#endif
 
 size_t			ft_ntime(void)
 {
